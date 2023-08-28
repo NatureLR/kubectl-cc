@@ -10,12 +10,12 @@ magenta='\033[95m'
 cyan='\033[96m'
 none='\033[0m'
 
-_red()    { echo -e ${red}$*${none}; }
-_green()  { echo -e ${green}$*${none}; }
-_yellow() { echo -e ${yellow}$*${none}; }
-_magenta(){ echo -e ${magenta}$*${none}; }
-_cyan()   { echo -e ${cyan}$*${none}; }
-_none()   { echo -e ${nonex}$*${none}; }
+_red()    { echo -e "${red}""$*""${none}"; }
+_green()  { echo -e "${green}""$*""${none}"; }
+_yellow() { echo -e "${yellow}""$*" "${none}"; }
+_magenta(){ echo -e "${magenta}""$*""${none}"; }
+_cyan()   { echo -e "${cyan}""$*""${none}"; }
+_none()   { echo -e "${none}""$*""${none}"; }
 
 choice=""
 dir="$HOME/.kube/configs"
@@ -28,8 +28,8 @@ link(){
         exit 1
     fi
 
-    ln -f -s $dir/$choice.yaml $HOME/.kube/config
-    _yellow 切换到$choice
+    ln -f -s "$dir"/"$choice".yaml "$HOME"/.kube/config
+    _yellow 切换到"$choice"
 }
 
 list(){
@@ -38,17 +38,16 @@ list(){
         choice=$(FZF_DEFAULT_COMMAND="$self" fzf --ansi --no-preview)
     else
 
-        cur=$(basename $(readlink $kubeconf))
+        cur=$(basename "$(readlink "$kubeconf")")
         cur=${cur%?????}
-
-        for l in $(basename $dir/*yaml); do 
+        for l in $(find "$dir" -name "*.yaml" | rev | cut -d"/" -f1 | rev); do
             name=${l%?????}
 
             if [ "$cur" = "$name" ];then
-                _yellow $cur
+                _yellow "$cur"
                 continue
             fi 
-            echo $name
+            echo "$name"
         done
         exit 0
     fi
