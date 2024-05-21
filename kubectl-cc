@@ -39,12 +39,10 @@ list(){
         # 去除空格
         choice=${choice// /} 
     else
-
         cur=$(basename "$(readlink "$kubeconf")")
         cur=${cur%?????}
         for l in $(find "$dir" -name "*.yaml" | rev | cut -d"/" -f1 | rev); do
             name=${l%?????}
-
             if [ "$cur" = "$name" ];then
                 _yellow "$cur"
                 continue
@@ -55,7 +53,15 @@ list(){
     fi
 }
 
+
+dir(){
+    if [ ! -d "$dir" ]; then
+        mkdir -p "$dir"
+    fi
+}
+
 main(){
+    dir
     # 没有参数就list所有的文件有参数有就切换到对应的文件
     if [[ $# -eq 0 ]];then
        list
