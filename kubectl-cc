@@ -36,6 +36,8 @@ list(){
     # 如果是从终端启动且安装了fzf则使用fzf进行模糊选择
     if [ -x "$(command -v fzf)" ] && [ -t 0 ]; then
         choice=$(FZF_DEFAULT_COMMAND="$self" fzf --ansi --no-preview)
+        # 去除空格
+        choice=${choice// /} 
     else
 
         cur=$(basename "$(readlink "$kubeconf")")
