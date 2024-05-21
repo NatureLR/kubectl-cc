@@ -55,19 +55,22 @@ list(){
     fi
 }
 
-# 没有参数就list所有的文件有参数有就切换到对应的文件
-if [[ $# -eq 0 ]];then
-   list
-   link
-fi
+main(){
+    # 没有参数就list所有的文件有参数有就切换到对应的文件
+    if [[ $# -eq 0 ]];then
+       list
+       link
+    fi
 
-# 等于则切换到对应的文件去
-if [[ $# -eq 1 ]];then
-   choice=$1
-   link
-fi
+    # 等于则切换到对应的文件去
+    if [[ $# -eq 1 ]];then
+       choice=$1
+       link
+    fi
 
+    if [[ $# -gt 1 ]];then
+       echo "参数过多"
+    fi
+}
 
-if [[ $# -gt 1 ]];then
-   echo "参数过多"
-fi
+main "$@"
