@@ -2,7 +2,7 @@
 
 kubectl cc (change cluster)
 
-[![asciicast](https://asciinema.org/a/ApsYXdOC0iNLPVhghcds9jOBS.svg)](https://asciinema.org/a/ApsYXdOC0iNLPVhghcds9jOBS)
+[![asciicast](https://asciinema.org/a/665475.svg)](https://asciinema.org/a/665475)
 
 - 将k8s配置文件放在`.kube/configs`下保存为xxx.yaml文件
 
