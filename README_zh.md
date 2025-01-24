@@ -6,11 +6,11 @@ kubectl cc (change cluster)
 
 [![asciicast](https://asciinema.org/a/665475.svg)](https://asciinema.org/a/665475)
 
-- Save the k8s configuration file as a xxx.yaml file to '.cube/config'
+- 将k8s配置文件放在`.kube/configs`下保存为xxx.yaml文件
 
-- Fuzzy search requires installation [fzf](https://github.com/junegunn/fzf)
+- 模糊搜索需要安装[fzf](https://github.com/junegunn/fzf)
 
-## install
+## 安装
 
 ```shell
 git clone https://github.com/NatureLR/kubectl-cc
