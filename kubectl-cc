@@ -18,7 +18,7 @@ _cyan()   { echo -e "${cyan}""$*""${none}"; }
 _none()   { echo -e "${none}""$*""${none}"; }
 
 choice=""
-dir="$HOME/.kube/configs"
+dir="$HOME/.kube/config.d"
 kubeconf="$HOME/.kube/config"
 self=$(readlink -f "$0")
 
