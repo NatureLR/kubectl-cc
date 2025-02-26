@@ -17,5 +17,5 @@ git clone https://github.com/NatureLR/kubectl-cc
 
 cd kubectl-cc
 
-mv kubectl-cc /usr/local/bin/
+cp kubectl-cc /usr/local/bin/
 ```
